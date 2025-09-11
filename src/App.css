@@ -1,38 +1,242 @@
-.App {
-  text-align: center;
+/* ===============================
+   General App Layout
+================================ */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app-container {
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ===============================
+   Header
+================================ */
+header {
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+  padding: 2rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.reset-btn {
+  background-color: #e53935;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.reset-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* ===============================
+   Main Content with Sidebar
+================================ */
+.main-content {
+  display: flex;
+  margin-top: 100px; /* Push content below fixed header */
+}
+
+/* ===============================
+   Sidebar Navbar
+================================ */
+
+nav {
+  width: 220px;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  height: calc(100vh - 100px); /* full height minus header */
+  position: fixed;
+  top: 100px;
+  left: 0;
+}
+
+
+.nav-btn {
+  background-color: #fff;
+  color: #333;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.nav-btn:hover {
+  background-color: #ee0c0c;
+}
+
+.nav-btn.active {
+  background-color: #1976d2;
+  color: #fff;
+  border-color: #1976d2;
+}
+
+/* ===============================
+   Main Section
+================================ */
+main {
+  margin-left: 220px; /* space for sidebar */
+  flex: 1;
+  padding: 2rem;
+}
+
+/* ===============================
+   Forms
+================================ */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+form input,
+form select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-width: 120px;
+}
+
+form button {
+  background-color: #1976d2;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background-color: #1565c0;
+}
+
+/* ===============================
+   Tables
+================================ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  background-color: #fff;
+}
+
+th, td {
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+thead {
+  background-color: #f0f0f0;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+td button {
+  background: none;
+  color: inherit;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+td button:hover {
+  opacity: 0.8;
+}
+
+td button.text-blue-500 {
+  color: #1976d2;
+}
+
+td button.text-red-500 {
+  color: #e53935;
+}
+
+/* ===============================
+   Dashboard Cards
+================================ */
+.dashboard-card {
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  flex: 1;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.dashboard-card h3 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #1976d2;
+}
+
+/* ===============================
+   Dashboard Table
+================================ */
+.dashboard-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.dashboard-table th, .dashboard-table td {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+}
+
+.dashboard-table thead {
+  background-color: #f0f0f0;
+}
+
+/* ===============================
+   Error Banner
+================================ */
+.error-banner {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #e53935;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 1000;
 }
