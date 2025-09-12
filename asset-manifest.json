@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/poloko_Chaane901019286.github.io/static/css/main.a7a383d0.css",
-    "main.js": "/poloko_Chaane901019286.github.io/static/js/main.95272420.js",
+    "main.css": "/poloko_Chaane901019286.github.io/static/css/main.fc874cf4.css",
+    "main.js": "/poloko_Chaane901019286.github.io/static/js/main.0d375226.js",
     "index.html": "/poloko_Chaane901019286.github.io/index.html",
-    "main.a7a383d0.css.map": "/poloko_Chaane901019286.github.io/static/css/main.a7a383d0.css.map",
-    "main.95272420.js.map": "/poloko_Chaane901019286.github.io/static/js/main.95272420.js.map"
+    "main.fc874cf4.css.map": "/poloko_Chaane901019286.github.io/static/css/main.fc874cf4.css.map",
+    "main.0d375226.js.map": "/poloko_Chaane901019286.github.io/static/js/main.0d375226.js.map"
   },
   "entrypoints": [
-    "static/css/main.a7a383d0.css",
-    "static/js/main.95272420.js"
+    "static/css/main.fc874cf4.css",
+    "static/js/main.0d375226.js"
   ]
 }
