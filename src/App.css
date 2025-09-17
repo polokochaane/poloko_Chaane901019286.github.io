@@ -64,36 +64,39 @@ header {
 
 .nav-container {
   display: flex;
-  flex-direction: column; /* stack buttons vertically */
-  align-items: stretch; /* make buttons fill the width */
+  flex-direction: column;
+  align-items: stretch;
   background-color: #333;
   padding: 10px;
-  width: 200px; /* sidebar width */
-  min-height: 100vh; /* full height */
+  width: 200px;
+  min-height: 100vh;
+  position: fixed;
+  top: 60px; /* 👈 match header height */
+  left: 0;
 }
-
 
 .nav-btn {
   background-color: #fff;
   color: #333;
   padding: 0.75rem 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 10px; /* spacing between buttons */
   border-radius: 5px;
   border: 1px solid #ccc;
   font-weight: 600;
   transition: all 0.3s ease;
-  text-align: left;
+  text-align: center;
+  cursor: pointer;
 }
 
-.nav-btn:hover {
-  background-color: #ee0c0c;
+.nav-btn:last-child {
+  margin-bottom: 0; /* remove extra gap after last button */
 }
 
 .nav-btn.active {
-  background-color: #1976d2;
-  color: #fff;
-  border-color: #1976d2;
+  background-color: #007bff;
+  color: white;
 }
+
 
 /* ===============================
    Main Section
