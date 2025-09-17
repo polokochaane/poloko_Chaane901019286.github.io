@@ -1,36 +1,72 @@
 import React from "react";
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 
 const Dashboard = ({ data }) => {
   const { products, transactions } = data;
+
+  // Totals
   const totalProducts = products.length;
   const totalStock = products.reduce((sum, p) => sum + p.quantity, 0);
+
+  // Recent transactions (last 5)
   const recentTransactions = transactions.slice(0, 5);
 
-  return (
-    <div className="bg-white p-8 rounded-lg shadow-xl w-full max-w-4xl">
-      <h2 className="text-3xl font-bold text-primary-brand border-b-2 pb-2 mb-6">
-        Dashboard Overview
-      </h2>
+  // Sales vs Purchases summary
+  const summary = transactions.reduce(
+    (acc, tx) => {
+      if (tx.type === "sale") acc.sales += tx.quantity;
+      if (tx.type === "restock") acc.purchases += tx.quantity;
+      return acc;
+    },
+    { sales: 0, purchases: 0 }
+  );
 
-      <div className="flex gap-6 text-center">
-        <div className="bg-gray-100 p-6 rounded-lg w-full">
-          <h3 className="text-4xl font-extrabold text-primary-brand">
-            {totalProducts}
-          </h3>
+  const chartData = [
+    {
+      name: "Transactions",
+      sales: summary.sales,
+      purchases: summary.purchases,
+    },
+  ];
+
+  return (
+    <div className="dashboard-container">
+      <h2 className="dashboard-title">Dashboard Overview</h2>
+
+      {/* Dashboard Cards */}
+      <div className="dashboard-cards">
+        <div className="dashboard-card small-card">
+          <h3>{totalProducts}</h3>
           <p>Total Products</p>
         </div>
-        <div className="bg-gray-100 p-6 rounded-lg w-full">
-          <h3 className="text-4xl font-extrabold text-primary-brand">
-            {totalStock}
-          </h3>
+        <div className="dashboard-card small-card">
+          <h3>{totalStock}</h3>
           <p>Total Stock</p>
+        </div>
+        <div className="dashboard-card small-card">
+          <h3>{summary.sales}</h3>
+          <p>Total Sales</p>
+        </div>
+        <div className="dashboard-card small-card">
+          <h3>{summary.purchases}</h3>
+          <p>Total Purchases</p>
         </div>
       </div>
 
-      <h3 className="text-2xl font-bold mt-10 mb-4">Recent Transactions</h3>
+      {/* Recent Transactions */}
+      <h3 className="dashboard-subtitle">Recent Transactions</h3>
       {recentTransactions.length > 0 ? (
-        <table className="min-w-full">
-          <thead className="bg-gray-200">
+        <table className="dashboard-table">
+          <thead>
             <tr>
               <th>Product</th>
               <th>Type</th>
@@ -40,7 +76,7 @@ const Dashboard = ({ data }) => {
           </thead>
           <tbody>
             {recentTransactions.map((tx) => (
-              <tr key={tx.id} className="border-b">
+              <tr key={tx.id}>
                 <td>{tx.productName}</td>
                 <td>{tx.type === "sale" ? "Sale" : "Restock"}</td>
                 <td>{tx.quantity}</td>
@@ -52,6 +88,22 @@ const Dashboard = ({ data }) => {
       ) : (
         <p>No recent transactions</p>
       )}
+
+      {/* Sales vs Purchases Bar Chart */}
+      <div className="chart-container">
+        <h3>Sales vs Purchases</h3>
+        <ResponsiveContainer width="100%" height={300}>
+          <BarChart data={chartData}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="sales" fill="#3b82f6" />
+            <Bar dataKey="purchases" fill="#ef4444" />
+          </BarChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 };

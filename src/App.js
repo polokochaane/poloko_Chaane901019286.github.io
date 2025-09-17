@@ -32,12 +32,12 @@ const App = () => {
   return (
     <div className="app-container">
       {/* Header */}
-      <header>
-        Wings Cafe Inventory
-        <button onClick={handleReset} className="reset-btn">
-          Reset Database
-        </button>
-      </header>
+      <div className="header">
+        <div className="header-container">
+          <button className="reset-btn">Reset Database</button>
+          <span className="header-title">Wings Cafe Inventory</span>
+        </div>
+      </div>
 
       {/* Main Content */}
       <div className="main-content">

@@ -17,22 +17,33 @@ body {
 /* ===============================
    Header
 ================================ */
-header {
+.header {
   background-color: #000;
-  color: #fff;
-  width: 100%;
-  padding: 2rem;
-  font-size: 2.5rem;
+  color: white;
+  padding: 15px 20px;
+  font-size: 1.2rem;
   font-weight: bold;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0 auto;
 }
 
 .reset-btn {
@@ -57,9 +68,8 @@ header {
   display: flex;
   margin-top: 100px; /* Push content below fixed header */
 }
-
 /* ===============================
-   Sidebar Navbar
+   Navbar Buttons (Equal Width)
 ================================ */
 
 .nav-container {
@@ -80,7 +90,11 @@ header {
   color: #333;
   padding: 0.75rem 1rem;
   margin-bottom: 10px; /* spacing between buttons */
+<<<<<<< HEAD
   border-radius: 6px;
+=======
+  border-radius: 5px;
+>>>>>>> 9bdacc2 (Added sales vs purchases chart and extra dashboard cards)
   border: 1px solid #ccc;
   font-weight: 600;
   transition: all 0.3s ease;
@@ -98,6 +112,10 @@ header {
 }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9bdacc2 (Added sales vs purchases chart and extra dashboard cards)
 /* ===============================
    Main Section
 ================================ */
@@ -191,24 +209,66 @@ td button.text-red-500 {
 /* ===============================
    Dashboard Cards
 ================================ */
+
+
+
+
+/* ===============================
+   Dashboard Cards
+================================ */
+.dashboard-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #1976d2;
+  border-bottom: 2px solid #1976d2;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.dashboard-cards {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap; /* allow wrapping on smaller screens */
+  margin-bottom: 2rem;
+}
+
 .dashboard-card {
-  background-color: #f9f9f9;
+  flex: 1;
+  background-color: #f6f7fc;
   padding: 1.5rem;
   border-radius: 10px;
   text-align: center;
-  flex: 1;
   box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
 }
 
 .dashboard-card h3 {
   font-size: 2rem;
-  margin-bottom: 0.5rem;
   color: #1976d2;
+  margin-bottom: 0.5rem;
 }
 
-/* ===============================
-   Dashboard Table
-================================ */
+/* 👇 Modifier for smaller cards */
+.dashboard-card.small-card {
+  flex: none;
+  width: 160px;
+  padding: 1rem;
+}
+
+.dashboard-card.small-card h3 {
+  font-size: 1.5rem;
+}
+.dashboard-subtitle {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
 .dashboard-table {
   width: 100%;
   border-collapse: collapse;
@@ -222,6 +282,28 @@ td button.text-red-500 {
 .dashboard-table thead {
   background-color: #f0f0f0;
 }
+
+.dashboard-table tbody tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.dashboard-table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* ===============================
+   Chart Container
+================================ */
+.chart-container {
+  margin-top: 2rem;
+  background: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+
+
 
 /* ===============================
    Error Banner
