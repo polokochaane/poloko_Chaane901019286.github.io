@@ -62,16 +62,14 @@ header {
    Sidebar Navbar
 ================================ */
 
-nav {
-  width: 220px;
-  background-color: #f4f4f4;
+.nav-container {
   display: flex;
-  flex-direction: column;
-  padding: 2rem 1rem;
-  height: calc(100vh - 100px); /* full height minus header */
-  position: fixed;
-  top: 100px;
-  left: 0;
+  flex-direction: column; /* stack buttons vertically */
+  align-items: stretch; /* make buttons fill the width */
+  background-color: #333;
+  padding: 10px;
+  width: 200px; /* sidebar width */
+  min-height: 100vh; /* full height */
 }
 
 
