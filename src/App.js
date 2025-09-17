@@ -47,7 +47,7 @@ const App = () => {
         {/* Page Content */}
         <main>
           {view === "dashboard" && <Dashboard data={data} />}
-          {view === "products" && (
+          {view === "products" &&  (
             <ProductManagement
               data={data}
               saveData={saveData}
