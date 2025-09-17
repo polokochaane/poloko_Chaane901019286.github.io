@@ -5,7 +5,7 @@ import "../App.css";
 const Navbar = ({ currentView, setView }) => {
   return (
   
-      <nav className="flex justify-center gap-4 my-6">
+      <div className="nav-container">
         <button
           onClick={() => setView("dashboard")}
           className={`nav-btn ${currentView === "dashboard" ? "active" : ""}`}
@@ -24,7 +24,7 @@ const Navbar = ({ currentView, setView }) => {
         >
         Sales
         </button>
-      </nav>
+      <div/>
     
   );
 };
